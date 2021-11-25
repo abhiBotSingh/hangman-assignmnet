@@ -10,4 +10,4 @@ Below are some of the testcases that are valid for the hangman game;
 
 5. Test whether a notification appears when an alphabet that has been pressed already, is pressed again.
 
-6. Test that a player loses the game if enters 6 incorrect alphabets
+6. Test that a player loses the game if enters 6 incorrect alphabets.

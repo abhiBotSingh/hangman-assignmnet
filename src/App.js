@@ -15,10 +15,10 @@ import './App.css';
 function App() {
 
   const [playable, setPlayable] = useState(true);
+  const [selectedWord, setSelectedWord] = useState("");
   const [correctAlphabets, setCorrectAlphabets] = useState([]);
   const [wrongAlphabets, setWrongAlphabets] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
-  const [selectedWord, setSelectedWord] = useState("");
 
   useEffect(() => {
     getRandomWord(setSelectedWord);
@@ -47,12 +47,13 @@ function App() {
     window.addEventListener('keydown', handleKeyPress);
 
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [correctAlphabets, wrongAlphabets, playable]);
+  }, [correctAlphabets, wrongAlphabets, playable, selectedWord]);
 
   function playAgain() {
     setPlayable(true);
     setCorrectAlphabets([]);
     setWrongAlphabets([]);
+    setSelectedWord("");
     getRandomWord(setSelectedWord);
   }
 

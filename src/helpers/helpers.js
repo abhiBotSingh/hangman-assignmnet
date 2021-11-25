@@ -1,9 +1,5 @@
 import axios from "axios";
 
-export function getRandomIndex(arrayLength) {
-  return Math.floor(Math.random() * arrayLength)
-}
-
 export function showNotification(setter) {
   setter(true);
   setTimeout(() => {
@@ -31,7 +27,6 @@ export async function getRandomWord(setWord, isGamePlayable) {
 
   await axios.get("https://random-word-api.herokuapp.com/word?number=1&swear=0").then((res) => {
     const randomWord = res.data[0];
-    console.log(randomWord);
     setWord(randomWord);
   });
 

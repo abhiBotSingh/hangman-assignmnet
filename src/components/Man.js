@@ -4,6 +4,7 @@ import HangmanContext from '../context/HangmanContext';
 const Man = () => {
   const wrongAlphabets = useContext(HangmanContext);
   const errors = wrongAlphabets.length;
+  const testId = "hangman";
 
   return (
     <svg height="250" width="200" className="man-container">
@@ -15,25 +16,25 @@ const Man = () => {
 
       {/* Head */}
       {errors > 0 &&
-        <circle cx="140" cy="70" r="20" />
+        <circle cx="140" cy="70" r="20" data-testid={`${testId}-head`} />
       }
       {/* Body */}
       {errors > 1 &&
-        <line x1="140" y1="90" x2="140" y2="150" />
+        <line x1="140" y1="90" x2="140" y2="150" data-testid={`${testId}-body`} />
       }
       {/* Arms */}
       {errors > 2 &&
-        <line x1="140" y1="120" x2="120" y2="100" />
+        <line x1="140" y1="120" x2="120" y2="100" data-testid={`${testId}-arm-1`} />
       }
       {errors > 3 &&
-        <line x1="140" y1="120" x2="160" y2="100" />
+        <line x1="140" y1="120" x2="160" y2="100" data-testid={`${testId}-arm-2`} />
       }
       {/* Legs */}
       {errors > 4 &&
-        <line x1="140" y1="150" x2="120" y2="180" />
+        <line x1="140" y1="150" x2="120" y2="180" data-testid={`${testId}-leg-1`} />
       }
       {errors > 5 &&
-        <line x1="140" y1="150" x2="160" y2="180" />
+        <line x1="140" y1="150" x2="160" y2="180" data-testid={`${testId}-leg-2`} />
       }
     </svg>
   )
