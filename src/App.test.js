@@ -13,19 +13,41 @@ describe("Hangman game tests", () => {
     test("Hangman game is rendered properly", async () => {
         axios.get = jest
             .fn()
-            .mockResolvedValueOnce({ data: [mockWord] });
+            .mockResolvedValueOnce({ data: [mockWord] })
+            .mockResolvedValueOnce({
+                data: [
+                    {
+                        "meanings": [{
+                            "definitions": [{
+                                "definition": "mock hint"
+                            }]
+                        }]
+                    }
+                ]
+            });
 
         await act(async () => {
             const { asFragment } = render(<App />);
             expect(asFragment()).toMatchSnapshot();
         });
-        expect(axios.get).toHaveBeenCalledTimes(1);
+        expect(axios.get).toHaveBeenCalledTimes(2);
     });
 
     test("Hangman body parts appear one-by-one when an incorrect alphabet is pressed", async () => {
         axios.get = jest
             .fn()
-            .mockResolvedValueOnce({ data: [mockWord] });
+            .mockResolvedValueOnce({ data: [mockWord] })
+            .mockResolvedValueOnce({
+                data: [
+                    {
+                        "meanings": [{
+                            "definitions": [{
+                                "definition": "mock hint"
+                            }]
+                        }]
+                    }
+                ]
+            });
 
         await act(async () => {
             render(<App />);
@@ -52,7 +74,18 @@ describe("Hangman game tests", () => {
     test("Success popup appears when the player wins the game", async () => {
         axios.get = jest
             .fn()
-            .mockResolvedValueOnce({ data: ["z"] });
+            .mockResolvedValueOnce({ data: ["z"] })
+            .mockResolvedValueOnce({
+                data: [
+                    {
+                        "meanings": [{
+                            "definitions": [{
+                                "definition": "mock hint"
+                            }]
+                        }]
+                    }
+                ]
+            });
 
         await act(async () => {
             render(<App />);
@@ -70,7 +103,18 @@ describe("Hangman game tests", () => {
     test("Play again button appears when the player wins the game", async () => {
         axios.get = jest
             .fn()
-            .mockResolvedValueOnce({ data: [mockWord] });
+            .mockResolvedValueOnce({ data: [mockWord] })
+            .mockResolvedValueOnce({
+                data: [
+                    {
+                        "meanings": [{
+                            "definitions": [{
+                                "definition": "mock hint"
+                            }]
+                        }]
+                    }
+                ]
+            });
 
         await act(async () => {
             render(<App />);
@@ -88,7 +132,18 @@ describe("Hangman game tests", () => {
     test("A notification appears when an alphabet that has been pressed already, is pressed again", async () => {
         axios.get = jest
             .fn()
-            .mockResolvedValueOnce({ data: [mockWord] });
+            .mockResolvedValueOnce({ data: [mockWord] })
+            .mockResolvedValueOnce({
+                data: [
+                    {
+                        "meanings": [{
+                            "definitions": [{
+                                "definition": "mock hint"
+                            }]
+                        }]
+                    }
+                ]
+            });
 
         await act(async () => {
             render(<App />);
@@ -106,7 +161,18 @@ describe("Hangman game tests", () => {
     test("Player loses the game if they enter 6 incorrect alphabets", async () => {
         axios.get = jest
             .fn()
-            .mockResolvedValueOnce({ data: [mockWord] });
+            .mockResolvedValueOnce({ data: [mockWord] })
+            .mockResolvedValueOnce({
+                data: [
+                    {
+                        "meanings": [{
+                            "definitions": [{
+                                "definition": "mock hint"
+                            }]
+                        }]
+                    }
+                ]
+            });
 
         await act(async () => {
             render(<App />);

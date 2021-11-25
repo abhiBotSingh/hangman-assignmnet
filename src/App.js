@@ -16,12 +16,13 @@ function App() {
 
   const [playable, setPlayable] = useState(true);
   const [selectedWord, setSelectedWord] = useState("");
+  const [hint, setHint] = useState("");
   const [correctAlphabets, setCorrectAlphabets] = useState([]);
   const [wrongAlphabets, setWrongAlphabets] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
-    getRandomWord(setSelectedWord);
+    getRandomWord(setSelectedWord, setHint);
   }, []);
 
   useEffect(() => {
@@ -54,12 +55,14 @@ function App() {
     setCorrectAlphabets([]);
     setWrongAlphabets([]);
     setSelectedWord("");
-    getRandomWord(setSelectedWord);
+    setHint("");
+    getRandomWord(setSelectedWord, setHint);
   }
 
   return (
     <>
       <Title />
+      <p className="hint">HINT - {hint}</p>
       <div className="game-container">
         <HangmanContext.Provider value={wrongAlphabets}>
           <Man />
@@ -69,7 +72,6 @@ function App() {
         <HangmanContext.Provider value={{ selectedWord, correctAlphabets }}>
           <Word />
         </HangmanContext.Provider>
-        {/* <p className="hint">HINT - {hint}</p> */}
       </div>
       <HangmanContext.Provider value={{ correctAlphabets, wrongAlphabets, selectedWord, setPlayable, playAgain }}>
         <Popup />

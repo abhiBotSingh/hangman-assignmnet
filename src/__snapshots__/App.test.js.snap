@@ -10,6 +10,11 @@ exports[`Hangman game tests Hangman game is rendered properly 1`] = `
   <p>
     Find the hidden word - Enter a letter
   </p>
+  <p
+    class="hint"
+  >
+    HINT - 
+  </p>
   <div
     class="game-container"
   >
