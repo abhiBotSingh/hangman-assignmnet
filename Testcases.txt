@@ -1,0 +1,13 @@
+Below are some of the testcases that are valid for the hangman game;
+
+1. Test whether the hangman game renders properly when the game starts.
+
+2. Test that body of the hangman appears one-by-one when an incorrect alphabet is pressed.
+
+3. Test that a success popup appears when the player wins the game.
+
+4. Test that play again button appears when the player wins the game.
+
+5. Test whether a notification appears when an alphabet that has been pressed already, is pressed again.
+
+6. Test that a player loses the game if enters 6 incorrect alphabets
