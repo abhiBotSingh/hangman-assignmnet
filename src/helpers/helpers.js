@@ -27,16 +27,12 @@ export function checkWinner(correct, wrong, word) {
   return status
 }
 
-export async function getRandomWord() {
-  const firstRequest = await axios.get("https://random-word-api.herokuapp.com/word?number=1&swear=0");
-  const word = firstRequest.data[0];
-  console.log(firstRequest.data[0]);
-  // const data1 = firstRequest.data;
-  // if (!data1){
-  //     const secondRequest = await axios.get(`${<URL2>}`);
-  //     data1 = secondRequest.data;
-  // }
-  // console.log(firstRequest.data)
-  // return "kuchbhi";
-  return word;
+export async function getRandomWord(setWord, isGamePlayable) {
+
+  await axios.get("https://random-word-api.herokuapp.com/word?number=1&swear=0").then((res) => {
+    const randomWord = res.data[0];
+    console.log(randomWord);
+    setWord(randomWord);
+  });
+
 }
